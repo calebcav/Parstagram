@@ -1,0 +1,6 @@
+framework module Pods_caleb_instagram_caleb_instagramUITests {
+  umbrella header "Pods-caleb-instagram-caleb-instagramUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
