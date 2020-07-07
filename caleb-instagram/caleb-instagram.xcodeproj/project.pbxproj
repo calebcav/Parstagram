@@ -3,19 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383AC50824B3D2D300B68776 /* AuthenticatedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383AC50724B3D2D300B68776 /* AuthenticatedViewController.m */; };
+		383AC50C24B5116C00B68776 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 383AC50B24B5116C00B68776 /* Post.m */; };
 		38BDC1CA24B3C1A90073E3A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BDC1C924B3C1A90073E3A1 /* AppDelegate.m */; };
 		38BDC1CD24B3C1A90073E3A1 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BDC1CC24B3C1A90073E3A1 /* SceneDelegate.m */; };
-		38BDC1D024B3C1A90073E3A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BDC1CF24B3C1A90073E3A1 /* ViewController.m */; };
 		38BDC1D324B3C1A90073E3A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38BDC1D124B3C1A90073E3A1 /* Main.storyboard */; };
 		38BDC1D524B3C1A90073E3A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38BDC1D424B3C1A90073E3A1 /* Assets.xcassets */; };
 		38BDC1D824B3C1A90073E3A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38BDC1D624B3C1A90073E3A1 /* LaunchScreen.storyboard */; };
 		38BDC1DB24B3C1A90073E3A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BDC1DA24B3C1A90073E3A1 /* main.m */; };
 		38BDC1E524B3C1AA0073E3A1 /* caleb_instagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BDC1E424B3C1AA0073E3A1 /* caleb_instagramTests.m */; };
 		38BDC1F024B3C1AA0073E3A1 /* caleb_instagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BDC1EF24B3C1AA0073E3A1 /* caleb_instagramUITests.m */; };
+		38BDC1FF24B3C6D60073E3A1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BDC1FE24B3C6D60073E3A1 /* LoginViewController.m */; };
+		38BDC20224B3CBE90073E3A1 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BDC20124B3CBE90073E3A1 /* SignupViewController.m */; };
 		5DFCA1043C64EEB021D0EB12 /* Pods_caleb_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37BE39224CB6DCC029C297F5 /* Pods_caleb_instagram.framework */; };
 		B1D67FAF7761D42E46F2819D /* Pods_caleb_instagram_caleb_instagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE1E8939F5930281D6158877 /* Pods_caleb_instagram_caleb_instagramUITests.framework */; };
 		C65FC0B7E8B68B2B529DE0B3 /* Pods_caleb_instagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB6DAB500232ACAEF564D85 /* Pods_caleb_instagramTests.framework */; };
@@ -41,13 +44,15 @@
 /* Begin PBXFileReference section */
 		03491084B80FC02A231AF2D1 /* Pods-caleb-instagram-caleb-instagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-caleb-instagram-caleb-instagramUITests.debug.xcconfig"; path = "Target Support Files/Pods-caleb-instagram-caleb-instagramUITests/Pods-caleb-instagram-caleb-instagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		37BE39224CB6DCC029C297F5 /* Pods_caleb_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_caleb_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		383AC50624B3D2D300B68776 /* AuthenticatedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthenticatedViewController.h; sourceTree = "<group>"; };
+		383AC50724B3D2D300B68776 /* AuthenticatedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthenticatedViewController.m; sourceTree = "<group>"; };
+		383AC50A24B5116C00B68776 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		383AC50B24B5116C00B68776 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		38BDC1C524B3C1A90073E3A1 /* caleb-instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "caleb-instagram.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BDC1C824B3C1A90073E3A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		38BDC1C924B3C1A90073E3A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		38BDC1CB24B3C1A90073E3A1 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		38BDC1CC24B3C1A90073E3A1 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		38BDC1CE24B3C1A90073E3A1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		38BDC1CF24B3C1A90073E3A1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		38BDC1D224B3C1A90073E3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38BDC1D424B3C1A90073E3A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38BDC1D724B3C1A90073E3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +64,10 @@
 		38BDC1EB24B3C1AA0073E3A1 /* caleb-instagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "caleb-instagramUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BDC1EF24B3C1AA0073E3A1 /* caleb_instagramUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = caleb_instagramUITests.m; sourceTree = "<group>"; };
 		38BDC1F124B3C1AA0073E3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38BDC1FD24B3C6D60073E3A1 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		38BDC1FE24B3C6D60073E3A1 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		38BDC20024B3CBE90073E3A1 /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		38BDC20124B3CBE90073E3A1 /* SignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		3DB6DAB500232ACAEF564D85 /* Pods_caleb_instagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_caleb_instagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		441EF0B0E7DE3AF4B5A9357C /* Pods-caleb-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-caleb-instagram.debug.xcconfig"; path = "Target Support Files/Pods-caleb-instagram/Pods-caleb-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		5205AFECC059CEB8260A96F5 /* Pods-caleb-instagram-caleb-instagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-caleb-instagram-caleb-instagramUITests.release.xcconfig"; path = "Target Support Files/Pods-caleb-instagram-caleb-instagramUITests/Pods-caleb-instagram-caleb-instagramUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +115,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		383AC50924B3D2DB00B68776 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				383AC50624B3D2D300B68776 /* AuthenticatedViewController.h */,
+				383AC50724B3D2D300B68776 /* AuthenticatedViewController.m */,
+				38BDC20024B3CBE90073E3A1 /* SignupViewController.h */,
+				38BDC20124B3CBE90073E3A1 /* SignupViewController.m */,
+				38BDC1FD24B3C6D60073E3A1 /* LoginViewController.h */,
+				38BDC1FE24B3C6D60073E3A1 /* LoginViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		38BDC1BC24B3C1A90073E3A1 = {
 			isa = PBXGroup;
 			children = (
@@ -131,17 +153,18 @@
 		38BDC1C724B3C1A90073E3A1 /* caleb-instagram */ = {
 			isa = PBXGroup;
 			children = (
+				383AC50924B3D2DB00B68776 /* ViewController */,
 				38BDC1C824B3C1A90073E3A1 /* AppDelegate.h */,
 				38BDC1C924B3C1A90073E3A1 /* AppDelegate.m */,
 				38BDC1CB24B3C1A90073E3A1 /* SceneDelegate.h */,
 				38BDC1CC24B3C1A90073E3A1 /* SceneDelegate.m */,
-				38BDC1CE24B3C1A90073E3A1 /* ViewController.h */,
-				38BDC1CF24B3C1A90073E3A1 /* ViewController.m */,
 				38BDC1D124B3C1A90073E3A1 /* Main.storyboard */,
 				38BDC1D424B3C1A90073E3A1 /* Assets.xcassets */,
 				38BDC1D624B3C1A90073E3A1 /* LaunchScreen.storyboard */,
 				38BDC1D924B3C1A90073E3A1 /* Info.plist */,
 				38BDC1DA24B3C1A90073E3A1 /* main.m */,
+				383AC50A24B5116C00B68776 /* Post.h */,
+				383AC50B24B5116C00B68776 /* Post.m */,
 			);
 			path = "caleb-instagram";
 			sourceTree = "<group>";
@@ -174,7 +197,6 @@
 				E7D486767263FF110623177B /* Pods-caleb-instagramTests.debug.xcconfig */,
 				F3CB2BE163052EDF5D9B1CD8 /* Pods-caleb-instagramTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -416,10 +438,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38BDC1D024B3C1A90073E3A1 /* ViewController.m in Sources */,
+				383AC50824B3D2D300B68776 /* AuthenticatedViewController.m in Sources */,
+				38BDC20224B3CBE90073E3A1 /* SignupViewController.m in Sources */,
 				38BDC1CA24B3C1A90073E3A1 /* AppDelegate.m in Sources */,
 				38BDC1DB24B3C1A90073E3A1 /* main.m in Sources */,
 				38BDC1CD24B3C1A90073E3A1 /* SceneDelegate.m in Sources */,
+				38BDC1FF24B3C6D60073E3A1 /* LoginViewController.m in Sources */,
+				383AC50C24B5116C00B68776 /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
