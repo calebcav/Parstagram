@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AuthenticatedViewController : UIViewController 
+@interface AuthenticatedViewController : UIViewController
 
 @end
 

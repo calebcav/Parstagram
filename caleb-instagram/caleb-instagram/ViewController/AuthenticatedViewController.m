@@ -10,7 +10,15 @@
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
 #import "SceneDelegate.h"
-@interface AuthenticatedViewController ()
+#import "PostCell.h"
+#import "Post.h"
+#import <ParseUIConstants.h>
+#import "DetailedViewController.h"
+@interface AuthenticatedViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) NSArray *posts;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -18,7 +26,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self queryPosts];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(queryPosts) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
     // Do any additional setup after loading the view.
+    
     
     
 }
@@ -34,17 +49,60 @@
     }];
 }
 
+- (void) queryPosts {
+    // construct query
+    [self.activityIndicator startAnimating];
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query includeKey:@"author"];
+    query.limit = 20;
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            // do something with the array of object returned by the call
+            self.posts = posts;
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
+        [self.activityIndicator stopAnimating];
+    }];
+    
+    
 }
-*/
 
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"I got called");
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
+    Post *post = self.posts[indexPath.row];
+    cell.post = post;
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.posts.count;
+}
+
+
+
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+     UITableViewCell *tappedCell = sender;
+     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+     Post *post = self.posts[indexPath.row];
+     
+     DetailedViewController *detailedViewController = [segue destinationViewController];
+     detailedViewController.post = post;
+ }
+ 
 
 @end
