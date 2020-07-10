@@ -14,34 +14,56 @@
 #import "Post.h"
 #import <ParseUIConstants.h>
 #import "DetailedViewController.h"
-@interface AuthenticatedViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface AuthenticatedViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 @property (strong, nonatomic) NSArray *posts;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
-
+@property (assign, nonatomic) BOOL isMoreDataLoading;
+@property (assign, nonatomic) int limit;
 @end
 
 @implementation AuthenticatedViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.limit = 3;
     [self queryPosts];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(queryPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
+    
+    
+    
     // Do any additional setup after loading the view.
     
     
-    
 }
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView {
+    if(!self.isMoreDataLoading){
+        
+        int scrollViewContentHeight = self.tableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
+        
+        if (scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging){
+            self.isMoreDataLoading = true;
+            self.limit += 3;
+            [self queryPosts];
+        }
+        
+    }
+}
+
+
+
 - (IBAction)logoutButton:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         // PFUser.current() will now be nil
         SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-        NSLog(@"Works");
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         sceneDelegate.window.rootViewController = loginViewController;
@@ -53,8 +75,9 @@
     // construct query
     [self.activityIndicator startAnimating];
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
-    query.limit = 20;
+    query.limit = self.limit;
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -64,6 +87,7 @@
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+        self.isMoreDataLoading = false;
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
         [self.activityIndicator stopAnimating];
@@ -76,11 +100,9 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"I got called");
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
     Post *post = self.posts[indexPath.row];
     cell.post = post;
-    
     return cell;
 }
 

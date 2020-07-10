@@ -8,8 +8,8 @@
 
 #import "PostCell.h"
 #import "Post.h"
+#import <DateTools.h>
 @implementation PostCell
-
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -25,10 +25,11 @@
 - (void)setPost:(Post *)post {
     _post = post;
     self.postImage.file = post.image;
-    
     [self.postImage loadInBackground];
     self.postName.text = post.author.username;
     self.postCaption.text = post.caption;
+    NSDate *postDate = post.createdAt;
+    self.postDate.text = postDate.shortTimeAgoSinceNow;
 }
 
 @end

@@ -9,7 +9,7 @@ target 'caleb-instagram' do
 
   pod 'Parse'
   pod 'Parse/UI'
-
+  pod 'DateTools'
   target 'caleb-instagramTests' do
     inherit! :search_paths
     # Pods for testing

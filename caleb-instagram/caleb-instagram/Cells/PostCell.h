@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) Post *post;
 @property (strong, nonatomic) IBOutlet UILabel *postName;
 @property (strong, nonatomic) IBOutlet UILabel *postCaption;
+@property (strong, nonatomic) IBOutlet UILabel *postDate;
 
 @end
 
