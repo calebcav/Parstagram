@@ -52,7 +52,12 @@
 }
 - (IBAction)submitButton:(id)sender {
     [Post postUserImage:self.imagePost withCaption:self.captionField.text withCompletion:^(BOOL succeeded, NSError *error){
-        NSLog(@"Works!");
+        UIAlertController *alertvc = [UIAlertController alertControllerWithTitle:@"Post Successful!" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleDefault handler: ^ (UIAlertAction *_Nonnull action){
+            NSLog(@"Dissmissed");
+        }];
+        [alertvc addAction:action];
+        [self presentViewController:alertvc animated:true completion:nil];
     }];
 }
 
