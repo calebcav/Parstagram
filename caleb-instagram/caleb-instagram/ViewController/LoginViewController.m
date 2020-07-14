@@ -23,6 +23,7 @@
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
 }
+
 - (IBAction)loginButton:(id)sender {
     NSString *username = self.usernameField.text;
     NSString *password = self.passwordField.text;
@@ -36,7 +37,6 @@
         }
     }];
 }
-
 
 -(void)dismissKeyboard
 {

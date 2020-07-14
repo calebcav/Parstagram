@@ -84,9 +84,6 @@
     }];
 }
 
-
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
     Post *post = self.posts[indexPath.row];
@@ -97,8 +94,6 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
 }
-
-
 
  #pragma mark - Navigation
  

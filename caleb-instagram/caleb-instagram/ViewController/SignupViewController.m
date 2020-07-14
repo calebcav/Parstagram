@@ -21,7 +21,6 @@
     // Do any additional setup after loading the view.
 }
 
-
 - (IBAction)signupButton:(id)sender {
     PFUser *newUser = [PFUser user];
     newUser.username = self.usernameField.text;
@@ -41,7 +40,6 @@
 - (IBAction)closeButton:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
-
 
 /*
 #pragma mark - Navigation

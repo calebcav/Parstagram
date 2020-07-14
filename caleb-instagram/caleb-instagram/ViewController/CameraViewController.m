@@ -63,8 +63,6 @@
     [_captionField resignFirstResponder];
 }
 
-
-
 /*
 #pragma mark - Navigation
 
