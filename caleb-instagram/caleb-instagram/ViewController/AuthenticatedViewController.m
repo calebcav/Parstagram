@@ -35,17 +35,11 @@
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(queryPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
-    
-    
-    
     // Do any additional setup after loading the view.
-    
-    
 }
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     if(!self.isMoreDataLoading){
-        
         int scrollViewContentHeight = self.tableView.contentSize.height;
         int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
         
@@ -58,8 +52,6 @@
     }
 }
 
-
-
 - (IBAction)logoutButton:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         // PFUser.current() will now be nil
@@ -67,7 +59,6 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         sceneDelegate.window.rootViewController = loginViewController;
-
     }];
 }
 
@@ -78,7 +69,6 @@
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
     query.limit = self.limit;
-
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -92,8 +82,6 @@
         [self.refreshControl endRefreshing];
         [self.activityIndicator stopAnimating];
     }];
-    
-    
 }
 
 
@@ -121,7 +109,6 @@
      UITableViewCell *tappedCell = sender;
      NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
      Post *post = self.posts[indexPath.row];
-     
      DetailedViewController *detailedViewController = [segue destinationViewController];
      detailedViewController.post = post;
  }

@@ -18,19 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
     ParseClientConfiguration *configuration = [ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
       configuration.applicationId = @"myAppId";
       configuration.server = @"https://caleb-instagram.herokuapp.com/parse";
     }];
     [Parse initializeWithConfiguration:configuration];
     
-    
-    
     return YES;
 }
-
-
 #pragma mark - UISceneSession lifecycle
 
 

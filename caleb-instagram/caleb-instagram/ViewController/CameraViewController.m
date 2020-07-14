@@ -21,7 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
 }
@@ -40,11 +39,9 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-
     // Do something with the images (based on your use case)
     self.imagePost = editedImage;
     // Dismiss UIImagePickerController to go back to your original view controller

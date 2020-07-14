@@ -36,7 +36,6 @@
              // manually segue to logged in view
          }
      }];
-    
 }
 
 - (IBAction)closeButton:(id)sender {

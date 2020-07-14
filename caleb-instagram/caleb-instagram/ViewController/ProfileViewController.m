@@ -28,7 +28,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self queryPosts];
-    
 }
 
 
@@ -39,7 +38,6 @@
     [query whereKey:@"author" equalTo:PFUser.currentUser];
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
-
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
